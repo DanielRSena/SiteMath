@@ -28,7 +28,7 @@ nav {
 
 h1, h2, h3, h4, h5,h6  { color: var(--laranjaEscuro); }
 
-h1, .ferramentas { text-align: center; }
+h1, .centralizaTexto { text-align: center; }
 
 a{
     text-decoration: none;
@@ -58,27 +58,33 @@ a:hover{ color: var(--laranjaEscuro); }
     align-items: center;
 }
 
-.imagens{
+.centralizaBloco{
     display: flex;
     justify-content: center;
 }
 
 table {
     text-align: center;
-    width: auto;
     border: 2px solid;
-    line-height: 20px;
 }
 
 td { border: 2px solid; }
 
-
 .iconResponsivo, .menuResponsivo { display: none; }
 
 .conteudo {
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
     font-size: larger;
+}
+
+.justificaTexto{ text-align: justify;}
+
+.rodape{
+    display: flex;
+    background-image: var(--degAzulAzul);
+    padding: 1rem;
+    justify-content: center;
 }
 
 /*Menu padrão*/
@@ -107,20 +113,7 @@ td { border: 2px solid; }
     
     nav ul li a:hover { background-color: var(--azulClaro); }
 
-    .rodape{
-        display: flex;
-        background-image: var(--degAzulAzul);
-        padding: 2rem;
-        justify-content: center;
-    }
-    
-    .rConteudo{
-       
-       justify-content: center;
-       align-items: center;
-       display: inline;
-    }
-
+    .rodape{ padding: 2rem;}
 }
 
 /*Menu responsivo*/
@@ -130,7 +123,6 @@ td { border: 2px solid; }
     .open {display: block;}
     .menuResponsivo { background-image: var(--degAzulAzul);}
     .iconResponsivo { display: flex; }
-    .conteudo { margin: 5%;}
 
     nav {
         padding: 1.5rem 4rem;
@@ -153,17 +145,5 @@ td { border: 2px solid; }
     .iconResponsivo li {
         display: block;
         padding-top: 1.2rem;
-    }
-
-    .rodape{
-        display: flex;
-        background-image: var(--degAzulAzul);
-        padding: 1rem;
-        justify-content: center;
-    }
-    
-    .rConteudo{
-       text-align: left;
-       display: block;
     }
 } 
