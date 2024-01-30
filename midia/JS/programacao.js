@@ -96,17 +96,13 @@ function ola() {
 //Habilitar menu responsivo
 function mostraMenu() {
     let menuRespons = document.querySelector('.menuResponsivo');
-    if (menuRespons.classList.contains('open')) {
-        menuRespons.classList.remove('open');
-    }
-    else {
-        menuRespons.classList.add('open');
-    }
+    if (menuRespons.classList.contains('open'))  menuRespons.classList.remove('open'); 
+    else menuRespons.classList.add('open');
 }
 
 //Rodapé da página
 function fimPagina() {
-    rodapeh.innerHTML = "<div class='rodape'> <div id='logo'> <img src='midia/imagens/minha_foto.png' alt='minha_foto'> </div> <div id='logo'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </div> <div class='rConteudo'> <strong>DANIEL RAMOS SENA</strong> <br> Idealizador do AjudaMath<br><br> <a href='https://instagram.com/odanielrsena' target='_blank' rel='nofollow'><img src='midia/imagens/insticon.png' alt=''></a> &nbsp; <a href='https://github.com/DanielRSena' target='_blank' rel='external'> <img src='midia/imagens/giticon.png' alt=''></a> &nbsp; <a href='https://www.linkedin.com/in/daniel-ramos-sena-84226724a/' target='_blank' rel='external'><img src='midia/imagens/linkicon.png' alt=''></a> <br><br> Muito obrigado por visitar esse site :) <br><br> Quer sugerir ou comentar algo? Envie para danielsena20@hotmail.com</div> </div>";
+    rodapeh.innerHTML = "<div class='rodape'> <div id='logo'> <img src='midia/imagens/minha_foto.png' alt='minha_foto'> </div> <div id='logo'> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </div> <div class='rConteudo'> <strong>DANIEL RAMOS SENA</strong> <br> Idealizador do AjudaMath<br><br> <a href='https://instagram.com/odanielrsena' target='_blank' rel='nofollow'><img src='midia/imagens/insticon.png' alt=''></a> &nbsp; <a href='https://github.com/DanielRSena' target='_blank' rel='external'> <img src='midia/imagens/giticon.png' alt=''></a> &nbsp; <a href='https://www.linkedin.com/in/daniel-ramos-sena-84226724a/' target='_blank' rel='external'><img src='midia/imagens/linkicon.png' alt=''></a> <br><br> Muito obrigado por visitar esse site :) <br><br> Quer sugerir ou comentar algo? <a href='mailto:danielsena20@hotmail.com?subject=ideias para o SiteMath' > Me envie um e-mail! </a> </div> </div>";
 }
 
 
@@ -115,13 +111,9 @@ function fimPagina() {
 //verifica se os valores digitados nas ferramentas realmente são números
 function valida() {
     erro = false;
-    for (let i = 0; i < arguments.length; i++) {
-        if (isNaN(arguments[i]))
-            erro = true;
-    }
+    for (let i = 0; i < arguments.length; i++) { if (isNaN(arguments[i])) erro = true; }
 
     return erro;
-
 }
 
 //equação de 1ºgrau
@@ -131,15 +123,11 @@ function equação_1_grau() {
     var b = parseFloat(var_b.value);
     var vIgualdade = parseFloat(igualdade.value);
 
-    if (isNaN(a) == true)
-        f1grau.innerHTML = "<br> O 'a' deve ser um número"
-    else if (isNaN(b) == true)
-        f1grau.innerHTML = "<br> O 'b' deve ser um número"
-    else if (isNaN(vIgualdade) == true)
-        f1grau.innerHTML = "<br> O valor da igualdade deve ser um número"
+    if (isNaN(a) == true) f1grau.innerHTML = "<br> O 'a' deve ser um número"
+    else if (isNaN(b) == true) f1grau.innerHTML = "<br> O 'b' deve ser um número"
+    else if (isNaN(vIgualdade) == true) f1grau.innerHTML = "<br> O valor da igualdade deve ser um número"
     else {
-        if (a == 0)
-            f1grau.innerHTML = "<br><br>Erro! o 'a' deve ser diferente de 0.<br><br>"
+        if (a == 0) f1grau.innerHTML = "<br><br>Erro! o 'a' deve ser diferente de 0.<br><br>"
         else {
             f1grau.innerHTML = "<br><br>" + a + "x + " + b + " = " + vIgualdade + "<br><br>" + a + "x = " + vIgualdade + " - " + b + "<br><br>";
 
@@ -165,10 +153,8 @@ function equação_2_grau() {
 
     var teste = valida(a, b, c, vIgualdade)
 
-    if (teste == true)
-        resultado.innerHTML = "<br><br> Erro! Todos os valores devem ser números";
-    else if(a == 0){
-        resultado.innerHTML = "<br>Erro! O 'a' deve ser diferente de 0<br><br>";
+    if (teste == true) resultado.innerHTML = "<br><br> Erro! Todos os valores devem ser números";
+    else if(a == 0){ resultado.innerHTML = "<br>Erro! O 'a' deve ser diferente de 0<br><br>";
     }
     else {
         c += (vIgualdade * (-1));
@@ -183,39 +169,28 @@ function equação_2_grau() {
 
         resultado.innerHTML += "&Delta; = " + delta + "<br><br>";
 
-        if (delta < 0)
-            resultado.innerHTML += "&Delta; = " + delta + ", portanto não tem raízes reais";
-        else if (delta == 0)
-            resultado.innerHTML += "O x tem valor único, que é " + ((-b) / (2 * a));
+        if (delta < 0) resultado.innerHTML += "&Delta; = " + delta + ", portanto não tem raízes reais";
+        else if (delta == 0) resultado.innerHTML += "O x tem valor único, que é " + ((-b) / (2 * a));
         else {
 
             delta = Math.sqrt(delta);
             delta = delta.toFixed(2);
             delta = parseFloat(delta);
 
-
             resultado.innerHTML += "&#8730; &Delta; = " + delta + "<br><br><br>"
 
             //x1
-
             resultado.innerHTML += "<strong>x1</strong> = (" + (-b) + " + " + delta + ") / ( " + 2 + " . " + a + ")<br><br>";
-
             x1 = (-b) + delta;
             x1 = x1.toFixed(2);
-
             resultado.innerHTML += "<strong>x1</strong> = " + x1 + " / " + (2 * a) + "<br><br><strong>x1</strong> = " + (x1 / (2 * a)) + "<br><br><br>";
 
             //x2
-
             resultado.innerHTML += "<strong>x2</strong> = (" + -b + " - " + delta + ") / ( " + 2 + " . " + a + ")<br><br>";
-
             x2 = ((-b) - delta);
-
             resultado.innerHTML += "<strong>x2</strong> = " + x2 + " / " + (2 * a) + "<br><br><strong>x2</strong> = " + ((-b) - delta) / (2 * a) + "<br><br>";
-
         }
     }
-
 }
 
 //sistemas lineares
@@ -233,8 +208,7 @@ function sistemasLineares() {
 
     teste = valida(nx1, ny1, n1, nx2, ny2, n2) //faz um teste para ter certeza de que todas as variáveis são números
 
-    if (teste == true) //verifica se o método retornou erro
-        sistemas.innerHTML = "<br><br>Todos os valores devem ser números!"
+    if (teste == true) sistemas.innerHTML = "<br><br>Todos os valores devem ser números!"
     else {
         aux = ny1;
         ny1 *= nx2;
@@ -257,6 +231,4 @@ function sistemasLineares() {
 
         sistemas.innerHTML = "<br><br> X = " + x + "<br>Y = " + y;
     }
-
-
 }
